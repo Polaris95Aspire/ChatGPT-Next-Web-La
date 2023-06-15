@@ -1,7 +1,5 @@
 #!/bin/bash
 # 构建项目
 yarn build
-# 启动项目并在后台运行，将输出重定向到 log 文件
-nohup yarn start &> app.log &
-# 记录进程 ID
-echo $! > pid.file
+# 启动项目并使用PM2守护进程，将应用命名为 "myapp"
+pm2 start yarn --name "ChatGpt-Next" -- start
